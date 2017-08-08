@@ -1,0 +1,45 @@
+#!/bin/bash
+#Package of your endpoints
+package=*myPackage*
+#Name of project
+project=*myProject*
+#Version of project
+version=*myVersion*
+
+#endpoints-framework-tools Path for tools
+#See documentations https://cloud.google.com/endpoints/docs/frameworks/java/generate-client-libraries-android
+tool=~/Documents/workspace/sdk/endpoints-framework-tools-2.0.0-beta.7/bin/endpoints-framework-tools
+
+#mvn tasks
+mvn clean
+mvn compile
+mvn appengine:deploy
+
+#Create directory if doesn't exist
+mkdir -p generatedEndpoints
+
+#Replace all . by / to find directory
+path="${package//\./\/}"
+echo "$(ls -f src/main/java/$path/* | wc -l) endpoints to generate founded"
+
+for file in src/main/java/$path/*
+do
+    basename=$(basename "$file")
+    echo ${basename%.*}
+    echo $package"."${basename%.*}
+    $tool get-client-lib --war=target/$project-$version/ -bs maven -o ./generatedEndpoints $package"."${basename%.*}
+done
+
+echo "All endpoints are ready"
+echo "Just unzip them"
+cd ./generatedEndpoints
+for file in ./*.zip
+do
+    unzip -P pcp9100 -o -q $file
+    basename=$(basename "$file")
+    IFS='-' read -r -a array <<< "${basename%.*}"
+    cd ${array[0]}
+    mvn install
+    cd ..
+done
+cd ..
