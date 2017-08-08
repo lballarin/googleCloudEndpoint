@@ -1,5 +1,5 @@
 # Google Cloud Endpoint Android Client
-Generate Android Client libraries with Maven 
+Generate Android Client libraries with Maven and deploy code on your Google Cloud Server
 
 ## Requierments
   * [gcloud](https://cloud.google.com/sdk/gcloud/) command-line tool. Follow the guide to init the tool.
@@ -84,7 +84,8 @@ You need a tool to execute a script and build your endpoints.
 >./script  
 
 ## Results
-All endpoints are generated in fodler generatedEndpoints in a root of your project. There are .zip and unzip file. Script execute `>mvn install` for each endpoint and generate a `jar`. Use this `jar`in your android project.
+All endpoints are generated in fodler generatedEndpoints in a root of your project. There are .zip and unzip file. Script execute `>mvn install` for each endpoint and generate a `jar`. Use this `jar`in your android project.  
+The project is also deployed on your server.
 
 ## Documentation
 https://cloud.google.com/appengine/docs/standard/java/tools/using-maven
