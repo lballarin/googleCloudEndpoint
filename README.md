@@ -4,6 +4,7 @@ Generate Android Client libraries with Maven
 ## Requierments
   * [gcloud](https://cloud.google.com/sdk/gcloud/) command-line tool. Follow the guide to init the tool.
   * [mvn](https://maven.apache.org/)
+  * [Endpoints framework tools](http://search.maven.org/remotecontent?filepath=com/google/endpoints/endpoints-framework-tools/2.0.0-beta.11/endpoints-framework-tools-2.0.0-beta.11.zip)
   * Java 7
   
 ## Project structure
@@ -89,3 +90,4 @@ All endpoints are generated in fodler generatedEndpoints in a root of your proje
 https://cloud.google.com/appengine/docs/standard/java/tools/using-maven
 https://cloud.google.com/endpoints/docs/frameworks/java/about-cloud-endpoints-frameworks
 https://cloud.google.com/endpoints/docs/frameworks/java/generate-client-libraries-android
+https://cloud.google.com/endpoints/docs/frameworks/java/adding-api-management
