@@ -11,9 +11,7 @@ version=*myVersion*
 tool=~/Documents/workspace/sdk/endpoints-framework-tools-2.0.0-beta.7/bin/endpoints-framework-tools
 
 #mvn tasks
-mvn clean
-mvn compile
-mvn appengine:deploy
+mvn clean install
 
 #Create directory if doesn't exist
 mkdir -p generatedEndpoints
@@ -30,6 +28,11 @@ do
     $tool get-client-lib --war=target/$project-$version/ -bs maven -o ./generatedEndpoints $package"."${basename%.*}
 done
 
+#generate swagger doc
+$tool get-swagger-doc --hostname=$project.appspot.com --war=target/$project-$version $allEndpoints
+#deploy swagger doc
+gcloud service-management deploy swagger.json
+
 echo "All endpoints are ready"
 echo "Just unzip them"
 cd ./generatedEndpoints
@@ -43,3 +46,6 @@ do
     cd ..
 done
 cd ..
+
+#Deploy project on your server
+mvn appengine:deploy
