@@ -1,5 +1,7 @@
 # Google Cloud Endpoint Android Client
-Generate Android Client libraries with Maven and deploy code on your Google Cloud Server
+Generate Android Client libraries with Maven
+Generate Swagger file for Endpoints section on Google Cloud Console. This section is usefull to see all calls to your API and manage the externals authorizations given to your clients
+Deploy code on your Google Cloud Server
 
 ## Requierments
   * [gcloud](https://cloud.google.com/sdk/gcloud/) command-line tool. Follow the guide to init the tool.
