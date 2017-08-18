@@ -42,7 +42,7 @@ do
     basename=$(basename "$file")
     IFS='-' read -r -a array <<< "${basename%.*}"
     cd ${array[0]}
-    mvn install
+    mvn clean install
     cd ..
 done
 cd ..
