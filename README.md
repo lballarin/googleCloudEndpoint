@@ -57,6 +57,14 @@ You need a tool to execute a script and build your endpoints.
 </dependency>
 ```
 
+```
+<plugin>
+    <groupId>com.google.appengine</groupId>
+    <artifactId>appengine-maven-plugin</artifactId>
+    <version>1.9.54</version>
+</plugin>
+```
+
 ## In web.xml
 
 ```
@@ -89,9 +97,11 @@ You need a tool to execute a script and build your endpoints.
 All endpoints are generated in folder generatedEndpoints in the root of your project. There are .zip and unzip file. Script execute `>mvn install` for each endpoint and generate a `jar`. Use this `jar` in your android project.  
 You can see Endpoints section in https://console.cloud.google.com/endpoints?project=[YOUR-PROJECT-ID]
 The project is also deployed on your server.
+You can deploy cron tasks and queue (you have to uncomment line)
 
 ## Documentation
 https://cloud.google.com/appengine/docs/standard/java/tools/using-maven
+https://cloud.google.com/appengine/docs/standard/java/tools/maven
 https://cloud.google.com/endpoints/docs/frameworks/java/about-cloud-endpoints-frameworks
 https://cloud.google.com/endpoints/docs/frameworks/java/generate-client-libraries-android
 https://cloud.google.com/endpoints/docs/frameworks/java/adding-api-management
