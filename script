@@ -49,3 +49,7 @@ cd ..
 
 #Deploy project on your server
 mvn appengine:deploy
+#For queue
+#mvn appengine:deployQueue
+#For Cron task
+#mvn appengine:deployCron
